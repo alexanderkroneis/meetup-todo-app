@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0aada0831681702208bb33c6f52a96a3",
+    "content-hash": "64693cf9e65f80a60422f9b9cd2a66d3",
     "packages": [
         {
             "name": "brick/math",
@@ -6590,6 +6590,69 @@
                 }
             ],
             "time": "2022-08-30T07:42:16+00:00"
+        },
+        {
+            "name": "regnerisch/laravel-beyond",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/regnerisch/laravel-beyond.git",
+                "reference": "a18088581d2182801d65d37c8fdd152afd5022e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/regnerisch/laravel-beyond/zipball/a18088581d2182801d65d37c8fdd152afd5022e8",
+                "reference": "a18088581d2182801d65d37c8fdd152afd5022e8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^9.0",
+                "illuminate/filesystem": "^9.0",
+                "illuminate/support": "^9.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^7.6",
+                "pestphp/pest": "^1.21",
+                "spatie/data-transfer-object": "^3.8",
+                "spatie/laravel-query-builder": "^5.0",
+                "spatie/laravel-queueable-action": "^2.14"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Regnerisch\\LaravelBeyond\\LaravelBeyondServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helper.php"
+                ],
+                "psr-4": {
+                    "Regnerisch\\LaravelBeyond\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Jonas Regner",
+                    "email": "regnerjonas@protonmail.com"
+                },
+                {
+                    "name": "Alexander Gaal",
+                    "email": "alexander.gaal@gipfel.dev"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/regnerisch/laravel-beyond/issues",
+                "source": "https://github.com/regnerisch/laravel-beyond/tree/v3.1.0"
+            },
+            "time": "2022-09-01T10:44:08+00:00"
         },
         {
             "name": "sebastian/cli-parser",

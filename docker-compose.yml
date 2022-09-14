@@ -1,0 +1,53 @@
+version: "3.8"
+
+services:
+    app:
+        image: jregner/nginx:1.19
+        env_file:
+            - .env
+        volumes:
+            - '.:/var/www/html'
+        working_dir: '/var/www/html'
+        depends_on:
+            - php
+            - mysql
+        networks:
+            - app
+            - traefik
+        labels:
+            - 'traefik.http.routers.${COMPOSE_PROJECT_NAME}.rule=Host(`${DOMAIN}`)'
+            - 'traefik.docker.network=docker-tools_traefik'
+
+    php:
+        image: alexandergaal/php:8.1-fpm-dev
+        user: "${USER_UID}:${GROUP_UID}"
+        volumes:
+            - '.:/var/www/html'
+        networks:
+            - app
+
+    mysql:
+        platform: linux/x86_64
+        image: mysql:8.0
+        env_file:
+            - .env
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_DATABASE: '${DB_DATABASE}'
+            MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+        volumes:
+            - 'mysqlvolume:/var/lib/mysql'
+        networks:
+            - app
+
+volumes:
+    mysqlvolume:
+        driver: local
+
+networks:
+    traefik:
+        external:
+            name: docker-tools_traefik
+    app:
+        driver: bridge
